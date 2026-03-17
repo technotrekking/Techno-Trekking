@@ -73,6 +73,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 2rem;d
 .card-price small{font-family:'Barlow',sans-serif;font-size:.65rem;color:var(--mist);letter-spacing:.1em;margin-left:3px}
 .btn-add{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--bg4);color:var(--snow);border:none;padding:.55rem 1rem;cursor:pointer;transition:all .2s}
 .btn-add:hover{background:var(--accent);color:#fff}
+.btn-wa{background:#25d366;color:#fff;font-size:.68rem;padding:.5rem .8rem}
+.btn-wa:hover{background:#1da851;color:#fff}
+.btn-add-cart{display:block;width:calc(100% - 2.6rem);margin:0 1.3rem 1.2rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:transparent;color:var(--mist);border:1px solid rgba(255,255,255,.1);padding:.45rem 1rem;cursor:pointer;transition:all .2s;text-align:center}
+.btn-add-cart:hover{background:var(--bg4);color:var(--snow);border-color:rgba(255,255,255,.25)}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:600;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal-box{background:var(--bg2);border:1px solid rgba(33,150,243,.15);max-width:760px;width:100%;max-height:92vh;overflow-y:auto;position:relative;transform:scale(.96);transition:transform .3s}
@@ -286,7 +290,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
   <div class="cart-items" id="cartItems"><div class="cart-empty"><div class="cart-empty-icon">🎒</div><p>Tu carrito está vacío.</p></div></div>
   <div id="cartFoot" style="display:none"><div class="cart-foot">
     <div class="cart-total"><span>TOTAL</span><strong id="cartTotal">$0</strong></div>
-    <button class="btn-checkout" onclick="openCheckout()">Finalizar pedido →</button>
+    <button class="btn-checkout" onclick="enviarPedidoWA()">💬 Enviar pedido por WhatsApp →</button>
   </div></div>
 </div>
 <div class="modal-overlay" id="productModal">
@@ -300,7 +304,6 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
       <p class="modal-desc" id="modalDesc"></p>
       <div class="modal-actions">
         <button class="btn-prim" onclick="addFromModal()">+ Agregar al carrito</button>
-        <a href="#contacto" class="btn-sec" onclick="closeModal()" style="padding:.9rem 2rem">Consultar</a>
       </div>
     </div>
   </div>
@@ -357,7 +360,8 @@ function renderProducts(){
     html+='<div class="card-info"><p class="card-cat">'+p.cat+'</p><h3 class="card-name">'+p.name+'</h3>';
     html+='<p class="card-desc">'+p.desc+'</p>';
     html+='<div class="card-footer"><span class="card-price">$'+p.price.toLocaleString('es-AR')+'<small>ARS</small></span>';
-    html+='<button class="btn-add" onclick="event.stopPropagation();addToCart('+p.id+')">+ Agregar</button></div></div></div>';
+    html+='<button class="btn-add" onclick="event.stopPropagation();addToCart('+p.id+')">+ Agregar al carrito</button></div>';
+    html+='</div></div>';
   });
   document.getElementById('productsGrid').innerHTML=html;
 }
@@ -472,6 +476,33 @@ function submitOrder(e){
   ok.innerHTML='<div style="font-size:2.5rem;margin-bottom:.8rem">\u2705</div><h3 style="font-family:Bebas Neue;font-size:1.7rem;color:var(--accent2);margin-bottom:.4rem">\u00a1Pedido Recibido!</h3><p style="color:var(--mist);font-size:.88rem">Te contactamos pronto para coordinar pago y entrega.</p><button onclick="this.parentNode.remove()" style="margin-top:1.2rem;background:var(--accent);color:#fff;border:none;padding:.6rem 1.8rem;cursor:pointer;font-family:Bebas Neue;font-size:1rem;letter-spacing:.1em">Cerrar</button>';
   document.body.appendChild(ok);
   cart=[];updateCartUI();
+}
+
+var WA_NUMBER='5492616617125';
+
+function consultarWA(id){
+  var p=PRODUCTS.find(function(x){return x.id===id});
+  if(!p)return;
+  var msg='Hola! Me interesa el siguiente producto:\n\n'
+    +'• '+p.name+'\n'
+    +'  Precio: $'+p.price.toLocaleString('es-AR')+' ARS\n\n'
+    +'¿Tienen stock disponible?';
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
+}
+
+function enviarPedidoWA(){
+  if(cart.length===0)return;
+  var total=cart.reduce(function(s,i){return s+i.price*i.qty},0);
+  var msg='Hola! Quiero consultar disponibilidad de los siguientes productos:\n\n';
+  cart.forEach(function(i){
+    msg+='• '+i.name+' x'+i.qty+'\n';
+    msg+='  $'+(i.price*i.qty).toLocaleString('es-AR')+' ARS\n\n';
+  });
+  msg+='─────────────────\n';
+  msg+='TOTAL ESTIMADO: $'+total.toLocaleString('es-AR')+' ARS\n\n';
+  msg+='¿Tienen todo disponible?';
+  toggleCart();
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
 }
 
 function sendForm(e){
