@@ -477,4 +477,13 @@ function showNotif(msg){
 }
 
 function toggleMenu(){
-  var link
+  var links=document.getElementById('navLinks');
+  if(links)links.classList.toggle('open');
+}
+
+buildUI();
+renderProducts();
+updateCartUI();
+</script>
+</body>
+</html>
