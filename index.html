@@ -66,6 +66,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 2rem;d
 .card-badge{position:absolute;top:.8rem;left:.8rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:.25rem .6rem;z-index:2}
 .badge-new{background:var(--accent);color:#fff}
 .badge-promo{background:var(--danger);color:#fff}
+.badge-sale{background:#ff6f00;color:#fff}
+.badge-soon{background:#6a1b9a;color:#fff}
+.badge-agotado{background:#37474f;color:#aaa}
+.stock-badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:.2rem .55rem;margin-bottom:.5rem}
+.stock-ok{background:rgba(46,125,50,.2);color:#81c784;border:1px solid rgba(46,125,50,.3)}
+.stock-last{background:rgba(230,81,0,.2);color:#ffb74d;border:1px solid rgba(230,81,0,.3)}
+.stock-out{background:rgba(55,71,79,.3);color:#78909c;border:1px solid rgba(55,71,79,.4)}
+.card-colors{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:.6rem}
+.color-dot{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.15);cursor:default;flex-shrink:0;title:attr(title)}
+.card-sizes{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:.8rem}
+.size-btn{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.08em;font-weight:700;padding:.22rem .5rem;border:1px solid rgba(255,255,255,.18);background:transparent;color:var(--mist);cursor:default;min-width:28px;text-align:center}
+.size-btn.avail{border-color:rgba(33,150,243,.4);color:var(--accent3);cursor:pointer}
+.size-btn.avail:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.size-btn.out{opacity:.35;text-decoration:line-through}
+.product-card.agotado{opacity:.7}
+.product-card.agotado .card-img{filter:grayscale(.6)}
+.soon-card{background:var(--bg2);border:1px dashed rgba(106,27,154,.4);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem;min-height:200px;padding:2rem;text-align:center;cursor:default}
+.soon-icon{font-size:2.2rem;opacity:.4}
+.soon-text{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#ab47bc;opacity:.7}
+.modal-colors{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.8rem;align-items:center}
+.modal-colors-label,.modal-sizes-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--mist);width:100%;margin-bottom:.25rem}
+.modal-color-dot{width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,.15);cursor:pointer;transition:transform .2s,border-color .2s;position:relative}
+.modal-color-dot:hover,.modal-color-dot.sel{border-color:#fff;transform:scale(1.2)}
+.modal-color-dot .dot-label{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:.58rem;white-space:nowrap;color:var(--mist);pointer-events:none}
+.modal-sizes{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.modal-size-btn{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.08em;font-weight:700;padding:.35rem .75rem;border:1px solid rgba(255,255,255,.18);background:transparent;color:var(--mist);min-width:38px;text-align:center}
+.modal-size-btn.avail{border-color:rgba(33,150,243,.5);color:var(--accent3);cursor:pointer}
+.modal-size-btn.avail:hover,.modal-size-btn.avail.sel{background:var(--accent);border-color:var(--accent);color:#fff;cursor:pointer}
+.modal-size-btn.out{opacity:.3;text-decoration:line-through;cursor:not-allowed}
 .card-info{padding:1.1rem 1.3rem 1.4rem}
 .card-cat{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
 .card-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;line-height:1.2;color:var(--snow);margin-bottom:.45rem}
@@ -115,6 +144,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 2rem;d
 .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:800;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none}
 .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
 .wa-float svg{width:30px;height:30px;fill:#fff}
+.stock-badge{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:.2rem .55rem;border-radius:2px}
+.stock-ok{background:rgba(46,125,50,.25);color:#81c784;border:1px solid rgba(46,125,50,.4)}
+.stock-last{background:rgba(230,115,0,.2);color:#ffb74d;border:1px solid rgba(230,115,0,.4)}
+.stock-out{background:rgba(183,28,28,.2);color:#ef9a9a;border:1px solid rgba(183,28,28,.35)}
+.color-dots{display:flex;gap:6px;align-items:center;margin:.5rem 0 .3rem}
+.color-dot{width:16px;height:16px;border-radius:50%;display:inline-block;flex-shrink:0}
+.size-pills{display:flex;gap:5px;flex-wrap:wrap;margin:.4rem 0 .8rem}
+.size-pill{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.2rem .55rem;border:1px solid rgba(255,255,255,.15);color:var(--mist)}
+.size-avail{border-color:rgba(33,150,243,.45);color:var(--accent2);cursor:default}
+.size-na{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.card-overlay-out{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.1em;color:rgba(255,255,255,.5)}
+.filter-sale{background:rgba(244,67,54,.15)!important;border-color:rgba(244,67,54,.5)!important;color:#ef9a9a!important}
+.filter-sale.active,.filter-sale:hover{background:#c62828!important;border-color:#c62828!important;color:#fff!important}
+.filter-soon{background:rgba(33,150,243,.1)!important;border-color:rgba(33,150,243,.4)!important;color:var(--accent2)!important}
+.filter-soon.active,.filter-soon:hover{background:var(--accent)!important;border-color:var(--accent)!important;color:#fff!important}
+.card-soon,.card-sale{opacity:.92}
+.badge-soon{background:#1565c0;color:#fff}
+.badge-sale{background:#c62828;color:#fff}
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:700;opacity:0;pointer-events:none;transition:opacity .3s}
 .cart-overlay.open{opacity:1;pointer-events:all}
 .cart-sidebar{position:fixed;top:0;right:0;width:360px;max-width:96vw;height:100vh;background:var(--bg2);border-left:1px solid rgba(33,150,243,.12);z-index:701;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
@@ -278,6 +325,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
     </div>
     <div class="filter-bar" id="filterBar"></div>
   </div>
+  <div id="catPills" style="display:none"></div>
   <div class="products-grid" id="productsGrid"></div>
 </section>
 <section id="contacto">
@@ -288,7 +336,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
       <p style="color:var(--mist);font-weight:300;line-height:1.7;margin-bottom:2rem;margin-top:1rem">Contanos qué producto te interesa, para qué actividad y tu presupuesto. Te asesoramos para elegir el equipamiento ideal.</p>
       <div class="c-row"><div class="c-icon">📍</div><div><p class="c-label">Ubicación</p><p class="c-val">Mendoza, Argentina</p></div></div>
       <div class="c-row"><div class="c-icon">📱</div><div><p class="c-label">WhatsApp</p><p class="c-val"><a href="https://wa.me/5492616617125" target="_blank">+54 9 261 661-7125</a></p></div></div>
-      <div class="c-row"><div class="c-icon">📧</div><div><p class="c-label">Email</p><p class="c-val"><a href="/cdn-cgi/l/email-protection#61150402090f0e1513040a0a080f06505121060c00080d4f020e0c"><span class="__cf_email__" data-cfemail="641001070c0a0b1016010f0f0d0a035554240309050d084a070b09">[email&#160;protected]</span></a></p></div></div>
+      <div class="c-row"><div class="c-icon">📧</div><div><p class="c-label">Email</p><p class="c-val"><a href="mailto:technotrekking@gmail.com">technotrekking@gmail.com</a></p></div></div>
       <div class="c-row"><div class="c-icon">📸</div><div><p class="c-label">Instagram</p><p class="c-val"><a href="https://instagram.com/techno_trekking" target="_blank">@techno_trekking</a></p></div></div>
       <div class="c-row"><div class="c-icon">⏰</div><div><p class="c-label">Horario</p><p class="c-val">Lun–Sáb · 9:00 a 20:00hs</p></div></div>
     </div>
@@ -325,7 +373,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
     <div class="footer-col"><h4>Seguinos</h4><ul>
       <li><a href="https://instagram.com/techno_trekking" target="_blank">Instagram</a></li>
       <li><a href="https://wa.me/5492616617125" target="_blank">WhatsApp</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#740011171c1a1b0006111f1f1d1a134544341319151d185a171b19">Email</a></li>
+      <li><a href="mailto:technotrekking@gmail.com">technotrekking@gmail.com</a></li>
     </ul></div>
   </div>
   <div class="footer-bottom">
@@ -333,7 +381,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
     <div class="soc-links">
       <a href="https://instagram.com/techno_trekking" target="_blank" class="soc-link">📸</a>
       <a href="https://wa.me/5492616617125" target="_blank" class="soc-link">💬</a>
-      <a href="/cdn-cgi/l/email-protection#92e6f7f1fafcfde6e0f7f9f9fbfcf5a3a2d2f5fff3fbfebcf1fdff" class="soc-link">📧</a>
+      <a href="mailto:technotrekking@gmail.com">technotrekking@gmail.com</a>
     </div>
   </div>
 </footer>
@@ -353,7 +401,12 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
     <div class="modal-content">
       <p class="modal-cat" id="modalCat"></p>
       <h3 class="modal-name" id="modalName"></h3>
-      <p class="modal-price" id="modalPrice"></p>
+      <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:.8rem">
+        <p class="modal-price" id="modalPrice" style="margin:0"></p>
+        <span class="stock-badge" id="modalStockBadge"></span>
+      </div>
+      <div id="modalColorsWrap"></div>
+      <div id="modalSizesWrap"></div>
       <p class="modal-desc" id="modalDesc"></p>
       <div class="modal-pagos">
         <span class="modal-pagos-label">Medios de pago</span>
@@ -363,7 +416,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
         <span class="pago-tag">💳 Crédito</span>
       </div>
       <div class="modal-actions">
-        <button class="btn-prim" onclick="addFromModal()">+ Agregar al carrito</button>
+        <button class="btn-prim" id="modalAddBtn" onclick="addFromModal()">+ Agregar al carrito</button>
       </div>
     </div>
   </div>
@@ -389,19 +442,65 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
 <a class="wa-float" href="https://wa.me/5492616617125?text=Hola!%20Quisiera%20consultar%20sobre%20sus%20productos." target="_blank" title="Consultanos por WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var PRODUCTS=[{"id": 1, "name": "Mochila 30L Arpenaz Quechua", "cat": "Mochilas", "price": 55000, "badge": "", "icon": "🎒", "desc": "¿Buscas una mochila para hacer una escapada en plena naturaleza? El modelo NH Arpenaz 100 de 30 litros es cómodo y está bien equipado para acompañarte en tus rutas de senderismo con poco desnivel.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766167/1_wljbtd.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766168/2_oh5mts.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766170/3_lnk5y2.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766169/3_1_l8am4b.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766171/5_s65mhv.jpg"]}, {"id": 2, "name": "Mochila 20L Arpenaz Quechua", "cat": "Mochilas", "price": 40000, "badge": "", "icon": "🎒", "desc": "Una mochila cómoda para la iniciación al senderismo: espalda y tirantes acolchados, reposapulgares para mayor estabilidad, cinturón de pecho para mayor ajuste. 2 bolsillos con cierre, compartimento grande, 2 porta botella y separador para PC 15\" o bolsa de agua.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766162/1_b3vo7f.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766163/2_dvtgtx.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766165/3_ikooi8.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766165/4_lzl51h.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766166/5_le7upl.jpg"]}, {"id": 3, "name": "Short Hendaia Rojo", "cat": "Pantalones", "price": 15000, "badge": "", "icon": "🩳", "desc": "Shorts deportivos Hendaia en color rojo. Diseño liviano y cómodo, ideal para senderismo y actividades al aire libre en clima cálido. Corte ergonómico para total libertad de movimiento.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766161/4_zg4qe9.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766160/3_y4hers.jpg"]}, {"id": 4, "name": "Short Hendaia Turquesa", "cat": "Pantalones", "price": 15000, "badge": "", "icon": "🩳", "desc": "Shorts deportivos Hendaia en color turquesa. Diseño liviano y cómodo, ideal para senderismo y actividades al aire libre en clima cálido. Corte ergonómico para total libertad de movimiento.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766159/2_pd5lxf.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766158/1_ijixjw.jpg"]}, {"id": 5, "name": "Pantalón de Senderismo Hombre", "cat": "Pantalones", "price": 55000, "badge": "", "icon": "👖", "desc": "Confeccionado mayoritariamente de algodón con tejido elastizado muy cómodo. Bien cortado para hacer senderismo prolongado y la vida cotidiana.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766174/1_tkaexn.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766175/2_jqblzb.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766176/3_crn3k7.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766178/4_xkcfwd.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766178/5_ovaui5.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766179/6_dyr7cr.jpg"]}, {"id": 6, "name": "Short Senderismo Hombre Azul", "cat": "Pantalones", "price": 48000, "badge": "", "icon": "🩳", "desc": "Shorts livianos y transpirables para iniciarse en el senderismo en montaña. El corte los hace ideales para el clima cálido.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766173/8_ze0rli.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766172/7_tfmhpt.jpg"]}, {"id": 7, "name": "Primera Capa Superior Hombre Negro", "cat": "Primera Piel", "price": 30000, "badge": "", "icon": "👕", "desc": "Comodidad asegurada, incluso en la nieve. Su material raspado atrapa el aire para crear un cálido efecto de abrigo. Costuras planas y punto extensible para mayor comodidad.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766186/1_n894ak.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773769455/2_uxjahc.jpg"]}, {"id": 8, "name": "Primera Capa Superior Hombre Blanco", "cat": "Primera Piel", "price": 30000, "badge": "", "icon": "👕", "desc": "Comodidad asegurada, incluso en la nieve. Su material raspado atrapa el aire para crear un cálido efecto de abrigo. Costuras planas y punto extensible para mayor comodidad.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766184/3_b6yzw2.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766186/4_j3dins.jpg"]}, {"id": 9, "name": "Primera Capa Inferior Hombre Negro", "cat": "Primera Piel", "price": 30000, "badge": "", "icon": "🩲", "desc": "Comodidad asegurada, incluso en la nieve. Su material raspado atrapa el aire para crear un cálido efecto de abrigo. Costuras planas y punto extensible para mayor comodidad.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766183/5_zs1qg3.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766183/6_nxgt2a.jpg"]}, {"id": 10, "name": "Guantes Polar Negro", "cat": "Primera Piel", "price": 10000, "badge": "", "icon": "🧤", "desc": "Diseñados para senderistas apasionados, estos guantes de poliéster reciclado aportan calor y resistencia para caminar con clima fresco. Polar ideal entre temporadas con mejor sujeción.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766180/7_ldkbdr.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766181/8_cxou1i.jpg"]}, {"id": 11, "name": "Remera Fitness Essential Hombre", "cat": "Remeras", "price": 20000, "badge": "", "icon": "👕", "desc": "¡El básico que no puede faltar en tu equipo! Diseño simple, tacto suave y tejido transpirable. Una prenda esencial para el deporte al aire libre.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773144/1_tb7lcw.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773141/2_hruxr0.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773145/3_qginx4.jpg"]}, {"id": 12, "name": "Raincut Full Zip Hombre", "cat": "Impermeables", "price": 48000, "badge": "", "icon": "🧥", "desc": "La parka auxiliar ideal para cubrirte en caso de lluvia ligera. Con su ingenioso bolsillo de guardado compacto es un equipamiento esencial para aventuras y excursiones.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766111/1_ckpyni.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766112/2_wu6nzk.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766113/3_najqba.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766114/4_oyxuqe.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766153/8_rqaqbl.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766154/9_jjbns8.jpg"]}, {"id": 13, "name": "Raincut Full Zip Mujer", "cat": "Impermeables", "price": 45000, "badge": "", "icon": "🧥", "desc": "Parka de senderismo con corte entallado en la cintura. Protección impermeable para llevar a todas partes: liviana, compacta y transpirable. ¡Se guarda en su propio bolsillo!", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766155/5_ekftey.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766156/6_z9gaxj.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766157/7_h9leio.jpg"]}, {"id": 14, "name": "Carpa 2 Personas Quechua", "cat": "Carpas", "price": 150000, "badge": "new", "icon": "⛺", "desc": "Una carpa accesible con estructura tipo domo de autosujeción. Puede moverse una vez armada para buscar el mejor lugar. Ideal para tus primeras salidas de camping.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766103/1_vjwbmf.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766104/2_ou2zyf.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766105/3_jtrnih.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766106/4_hd8lyg.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766107/5_et0psd.jpg"]}, {"id": 15, "name": "Carpa 2 Personas Iguazú Alpes", "cat": "Carpas", "price": 80000, "badge": "", "icon": "⛺", "desc": "Tu refugio ideal para la próxima escapada. Diseñada para practicidad y confort en climas moderados. Varillas de fibra de vidrio para un armado en pocos minutos.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766100/6_cicow2.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766101/7_cn3pwb.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766102/8_qvyifl.jpg"]}, {"id": 16, "name": "Colchón Inflable Camping Air Basic 2 Personas", "cat": "Accesorios", "price": 69000, "badge": "", "icon": "🛌", "desc": "Colchón Air Basic para dos campistas que buscan la comodidad de un colchón inflable al mejor precio calidad. Ideal para camping familiar.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766109/1_atvkla.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766110/2_or5ct0.jpg"]}, {"id": 17, "name": "Buzo Polar Senderismo Hombre", "cat": "Polares", "price": 45000, "badge": "", "icon": "🧥", "desc": "Polar de poliéster de alta densidad con cuello alto para protegerte del frío. Tejido transpirable que evacua el sudor y tejido extensible para libertad de movimientos.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766090/1_gcvhe8.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766091/2_kyp36h.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766092/3_nmv0cg.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766094/4_vqopti.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766094/5_r2nlo3.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766095/6_vrsb5i.jpg"]}, {"id": 18, "name": "Campera Polar Senderismo Hombre", "cat": "Polares", "price": 48000, "badge": "", "icon": "🧥", "desc": "Polar esencial para mantenerte abrigado con cuello alto. Tejido extensible, malla transpirable y cierre completo para facilitar la ventilación cuando sube la temperatura.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766098/7_r4pvh6.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766098/8_qk26ix.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766099/9_gfunwa.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766096/10_e46pgc.jpg"]}, {"id": 20, "name": "Bolsa de Dormir Taraira Alpes", "cat": "Bolsas de Dormir", "price": 110000, "badge": "new", "icon": "🛌", "desc": "Equilibrio perfecto entre espacio y protección térmica. Diseño rectangular con total libertad de movimiento. Tela Ripstop, relleno 400g/m² hasta -15°C de confort. Incluye bolsa de transporte.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766090/9_qjweaq.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766087/11_nkrzyr.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766086/10_mypfli.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766088/12_y5uqcq.jpg"]}, {"id": 21, "name": "Termo Inox 1L con Vaso Quechua", "cat": "Accesorios", "price": 50000, "badge": "", "icon": "☕", "desc": "Conserva tus bebidas calientes o frías durante varias horas. Simple y sólido, tapa confiable cuarto de vuelta, vaso incluido.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773134/2_ar6yos.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773128/1_aanfpr.jpg"]}, {"id": 22, "name": "Bastón Quechua", "cat": "Accesorios", "price": 22000, "badge": "", "icon": "🪄", "desc": "Bastón para senderismo con sistema de ajuste Push-pin sencillo pero muy eficaz. Solo hay que pulsar el botón y ya está listo para usar.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773137/4_ju6wzi.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773128/3_uoxx8q.jpg"]}, {"id": 23, "name": "Silla Trípode Quechua", "cat": "Accesorios", "price": 35000, "badge": "", "icon": "🪑", "desc": "Liviano y compacto, ideal para sentarse en cualquier terreno. Fácil de transportar y con excelente resistencia. La solución práctica para descansar en el campo.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773139/5_ah4nyz.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773131/6_godc4w.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773136/7_t4d0m1.jpg"]}, {"id": 24, "name": "Aislante Alpes", "cat": "Accesorios", "price": 12500, "badge": "", "icon": "🏕️", "desc": "El escudo definitivo contra el frío del suelo. Goma EVA con lámina aluminizada que refleja el calor corporal. Impermeable, ultra liviano y versátil. Medidas: 180 x 50 x 6 mm.", "imgs": ["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766108/1_mz1jdp.jpg", "https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766109/2_am6yqb.jpg"]}];
+<script>
+var PRODUCTS=[
+{"id":1,"name":"Mochila 30L Arpenaz Quechua","cat":"Mochilas","price":55000,"badge":"","icon":"🎒","stock":0,"colors":[],"sizes":[{"talle":"30L","stock":0}],"desc":"¿Buscas una mochila para hacer una escapada en plena naturaleza? El modelo NH Arpenaz 100 de 30 litros es cómodo y está bien equipado para acompañarte en tus rutas de senderismo con poco desnivel.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766167/1_wljbtd.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766168/2_oh5mts.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766170/3_lnk5y2.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766169/3_1_l8am4b.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766171/5_s65mhv.jpg"]},
+{"id":2,"name":"Mochila 20L Arpenaz Quechua","cat":"Mochilas","price":40000,"badge":"","icon":"🎒","stock":1,"colors":[],"sizes":[{"talle":"20L","stock":1}],"desc":"Una mochila cómoda para la iniciación al senderismo: espalda y tirantes acolchados, reposapulgares para mayor estabilidad, cinturón de pecho para mayor ajuste. 2 bolsillos con cierre, compartimento grande, 2 porta botella y separador para PC 15\" o bolsa de agua.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766162/1_b3vo7f.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766163/2_dvtgtx.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766165/3_ikooi8.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766165/4_lzl51h.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766166/5_le7upl.jpg"]},
+{"id":3,"name":"Short Hendaia Rojo","cat":"Pantalones","price":15000,"badge":"","icon":"🩳","stock":2,"colors":[{"color":"ROJO","stock":2}],"sizes":[{"talle":"L","stock":1},{"talle":"M","stock":1}],"desc":"Shorts deportivos Hendaia en color rojo. Diseño liviano y cómodo, ideal para senderismo y actividades al aire libre en clima cálido. Corte ergonómico para total libertad de movimiento.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766161/4_zg4qe9.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766160/3_y4hers.jpg"]},
+{"id":4,"name":"Short Hendaia Turquesa","cat":"Pantalones","price":15000,"badge":"","icon":"🩳","stock":3,"colors":[{"color":"TURQUESA","stock":3}],"sizes":[{"talle":"L","stock":1},{"talle":"M","stock":1},{"talle":"S","stock":1}],"desc":"Shorts deportivos Hendaia en color turquesa. Diseño liviano y cómodo, ideal para senderismo y actividades al aire libre en clima cálido. Corte ergonómico para total libertad de movimiento.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766159/2_pd5lxf.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766158/1_ijixjw.jpg"]},
+{"id":5,"name":"Pantalón de Senderismo Hombre","cat":"Pantalones","price":55000,"badge":"","icon":"👖","stock":2,"colors":[],"sizes":[{"talle":"48","stock":1},{"talle":"42","stock":1}],"desc":"Confeccionado mayoritariamente de algodón con tejido elastizado muy cómodo. Bien cortado para hacer senderismo prolongado y la vida cotidiana.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766174/1_tkaexn.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766175/2_jqblzb.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766176/3_crn3k7.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766178/4_xkcfwd.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766178/5_ovaui5.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766179/6_dyr7cr.jpg"]},
+{"id":6,"name":"Short Senderismo Hombre Azul","cat":"Pantalones","price":48000,"badge":"","icon":"🩳","stock":1,"colors":[{"color":"AZUL","stock":1}],"sizes":[{"talle":"44","stock":1}],"desc":"Shorts livianos y transpirables para iniciarse en el senderismo en montaña. El corte los hace ideales para el clima cálido.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766173/8_ze0rli.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766172/7_tfmhpt.jpg"]},
+{"id":7,"name":"Primera Capa Superior Hombre Negro","cat":"Primera Piel","price":30000,"badge":"","icon":"👕","stock":2,"colors":[{"color":"NEGRO","stock":2}],"sizes":[{"talle":"L","stock":1},{"talle":"M","stock":1}],"desc":"Comodidad asegurada, incluso en la nieve. Su material raspado atrapa el aire para crear un cálido efecto de abrigo. Costuras planas y punto extensible para mayor comodidad.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766186/1_n894ak.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773769455/2_uxjahc.jpg"]},
+{"id":8,"name":"Primera Capa Superior Hombre Blanco","cat":"Primera Piel","price":30000,"badge":"","icon":"👕","stock":1,"colors":[{"color":"BLANCO","stock":1}],"sizes":[{"talle":"L","stock":0},{"talle":"M","stock":1}],"desc":"Comodidad asegurada, incluso en la nieve. Su material raspado atrapa el aire para crear un cálido efecto de abrigo. Costuras planas y punto extensible para mayor comodidad.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766184/3_b6yzw2.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766186/4_j3dins.jpg"]},
+{"id":9,"name":"Primera Capa Inferior Hombre Negro","cat":"Primera Piel","price":30000,"badge":"","icon":"🩲","stock":1,"colors":[{"color":"NEGRO","stock":1}],"sizes":[{"talle":"M","stock":1}],"desc":"Comodidad asegurada, incluso en la nieve. Su material raspado atrapa el aire para crear un cálido efecto de abrigo. Costuras planas y punto extensible para mayor comodidad.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766183/5_zs1qg3.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766183/6_nxgt2a.jpg"]},
+{"id":10,"name":"Guantes Polar Negro","cat":"Primera Piel","price":10000,"badge":"","icon":"🧤","stock":2,"colors":[{"color":"NEGRO","stock":2}],"sizes":[{"talle":"L-XL","stock":1},{"talle":"S-M","stock":1}],"desc":"Diseñados para senderistas apasionados, estos guantes de poliéster reciclado aportan calor y resistencia para caminar con clima fresco. Polar ideal entre temporadas con mejor sujeción.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766180/7_ldkbdr.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766181/8_cxou1i.jpg"]},
+{"id":11,"name":"Remera Fitness Essential Hombre","cat":"Remeras","price":20000,"badge":"","icon":"👕","stock":1,"colors":[{"color":"GRIS","stock":1}],"sizes":[{"talle":"L","stock":1}],"desc":"¡El básico que no puede faltar en tu equipo! Diseño simple, tacto suave y tejido transpirable. Una prenda esencial para el deporte al aire libre.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773144/1_tb7lcw.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773141/2_hruxr0.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773145/3_qginx4.jpg"]},
+{"id":12,"name":"Raincut Full Zip Hombre","cat":"Impermeables","price":48000,"badge":"","icon":"🧥","stock":3,"colors":[{"color":"AZUL","stock":2},{"color":"AZUL OSC","stock":1}],"sizes":[{"talle":"L","stock":1},{"talle":"S","stock":1},{"talle":"XL","stock":1}],"desc":"La parka auxiliar ideal para cubrirte en caso de lluvia ligera. Con su ingenioso bolsillo de guardado compacto es un equipamiento esencial para aventuras y excursiones.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766111/1_ckpyni.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766112/2_wu6nzk.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766113/3_najqba.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766114/4_oyxuqe.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766153/8_rqaqbl.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766154/9_jjbns8.jpg"]},
+{"id":13,"name":"Raincut Full Zip Mujer","cat":"Impermeables","price":45000,"badge":"","icon":"🧥","stock":0,"colors":[{"color":"VERDE","stock":0}],"sizes":[{"talle":"S","stock":0}],"desc":"Parka de senderismo con corte entallado en la cintura. Protección impermeable para llevar a todas partes: liviana, compacta y transpirable. ¡Se guarda en su propio bolsillo!","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766155/5_ekftey.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766156/6_z9gaxj.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766157/7_h9leio.jpg"]},
+{"id":14,"name":"Carpa 2 Personas Quechua","cat":"Carpas","price":150000,"badge":"new","icon":"⛺","stock":1,"colors":[],"sizes":[{"talle":"2P","stock":1}],"desc":"Una carpa accesible con estructura tipo domo de autosujeción. Puede moverse una vez armada para buscar el mejor lugar. Ideal para tus primeras salidas de camping.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766103/1_vjwbmf.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766104/2_ou2zyf.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766105/3_jtrnih.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766106/4_hd8lyg.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766107/5_et0psd.jpg"]},
+{"id":15,"name":"Carpa 2 Personas Iguazú Alpes","cat":"Carpas","price":80000,"badge":"","icon":"⛺","stock":1,"colors":[],"sizes":[{"talle":"2P","stock":1}],"desc":"Tu refugio ideal para la próxima escapada. Diseñada para practicidad y confort en climas moderados. Varillas de fibra de vidrio para un armado en pocos minutos.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766100/6_cicow2.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766101/7_cn3pwb.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766102/8_qvyifl.jpg"]},
+{"id":16,"name":"Colchón Inflable Camping Air Basic 2 Personas","cat":"Accesorios","price":69000,"badge":"","icon":"🛌","stock":1,"colors":[],"sizes":[{"talle":"2P","stock":1}],"desc":"Colchón Air Basic para dos campistas que buscan la comodidad de un colchón inflable al mejor precio calidad. Ideal para camping familiar.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766109/1_atvkla.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766110/2_or5ct0.jpg"]},
+{"id":17,"name":"Buzo Polar Senderismo Hombre","cat":"Polares","price":45000,"badge":"","icon":"🧥","stock":3,"colors":[{"color":"AZUL","stock":1},{"color":"NEGRO","stock":1},{"color":"ROJO","stock":1}],"sizes":[{"talle":"XL","stock":1},{"talle":"M","stock":1},{"talle":"L","stock":1}],"desc":"Polar de poliéster de alta densidad con cuello alto para protegerte del frío. Tejido transpirable que evacua el sudor y tejido extensible para libertad de movimientos.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766090/1_gcvhe8.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766091/2_kyp36h.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766092/3_nmv0cg.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766094/4_vqopti.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766094/5_r2nlo3.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766095/6_vrsb5i.jpg"]},
+{"id":18,"name":"Campera Polar Senderismo Hombre","cat":"Polares","price":48000,"badge":"","icon":"🧥","stock":2,"colors":[{"color":"AZUL","stock":1},{"color":"VERDE","stock":1}],"sizes":[{"talle":"M","stock":1},{"talle":"S","stock":1}],"desc":"Polar esencial para mantenerte abrigado con cuello alto. Tejido extensible, malla transpirable y cierre completo para facilitar la ventilación cuando sube la temperatura.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766098/7_r4pvh6.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766098/8_qk26ix.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766099/9_gfunwa.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766096/10_e46pgc.jpg"]},
+{"id":20,"name":"Bolsa de Dormir Taraira Alpes","cat":"Bolsas de Dormir","price":110000,"badge":"new","icon":"🛌","stock":1,"colors":[],"sizes":[{"talle":"Único","stock":1}],"desc":"Equilibrio perfecto entre espacio y protección térmica. Diseño rectangular con total libertad de movimiento. Tela Ripstop, relleno 400g/m² hasta -15°C de confort. Incluye bolsa de transporte.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766090/9_qjweaq.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766087/11_nkrzyr.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766086/10_mypfli.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766088/12_y5uqcq.jpg"]},
+{"id":21,"name":"Termo Inox 1L con Vaso Quechua","cat":"Accesorios","price":50000,"badge":"","icon":"☕","stock":1,"colors":[],"sizes":[{"talle":"1L","stock":1}],"desc":"Conserva tus bebidas calientes o frías durante varias horas. Simple y sólido, tapa confiable cuarto de vuelta, vaso incluido.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773134/2_ar6yos.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773128/1_aanfpr.jpg"]},
+{"id":22,"name":"Bastón Quechua","cat":"Accesorios","price":22000,"badge":"","icon":"🪄","stock":4,"colors":[],"sizes":[{"talle":"Libre","stock":4}],"desc":"Bastón para senderismo con sistema de ajuste Push-pin sencillo pero muy eficaz. Solo hay que pulsar el botón y ya está listo para usar.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773137/4_ju6wzi.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773128/3_uoxx8q.jpg"]},
+{"id":23,"name":"Silla Trípode Quechua","cat":"Accesorios","price":35000,"badge":"","icon":"🪑","stock":1,"colors":[],"sizes":[{"talle":"Único","stock":1}],"desc":"Liviano y compacto, ideal para sentarse en cualquier terreno. Fácil de transportar y con excelente resistencia. La solución práctica para descansar en el campo.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773139/5_ah4nyz.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773131/6_godc4w.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773773136/7_t4d0m1.jpg"]},
+{"id":24,"name":"Aislante Alpes","cat":"Accesorios","price":12500,"badge":"","icon":"🏕️","stock":1,"colors":[],"sizes":[{"talle":"Único","stock":1}],"desc":"El escudo definitivo contra el frío del suelo. Goma EVA con lámina aluminizada que refleja el calor corporal. Impermeable, ultra liviano y versátil. Medidas: 180 x 50 x 6 mm.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766108/1_mz1jdp.jpg","https://res.cloudinary.com/dndzwnhrk/image/upload/v1773766109/2_am6yqb.jpg"]}
+];
+
+var COLOR_MAP={'AZUL':'#1565c0','AZUL OSC':'#0d2f6b','ROJO':'#c62828','VERDE':'#2e7d32','NEGRO':'#212121','BLANCO':'#e0e0e0','GRIS':'#78909c','TURQUESA':'#00897b','NARANJA':'#e65100'};
 var cart=[],currentP=null,currentIdx=0,activeFilter='Todos';
 
-function getCats(){return['Todos',...new Set(PRODUCTS.map(function(p){return p.cat}))];}
+function mkImg(p){
+  if(!p.imgs||p.imgs.length===0) return '<div class="card-img-placeholder">'+p.icon+'</div>';
+  return '<img src="'+p.imgs[0]+'" alt="'+p.name+'" loading="lazy">';
+}
+
+function getCats(){
+  var base=['Todos'];
+  var seen={};
+  PRODUCTS.forEach(function(p){
+    if(!seen[p.cat]&&p.cat!=='SALE'&&p.cat!=='Próximamente'){seen[p.cat]=1;base.push(p.cat);}
+  });
+  base.push('SALE');
+  base.push('Próximamente');
+  return base;
+}
 
 function buildUI(){
   var cats=getCats();
-  var btns='';
+  var pills='',btns='';
   cats.forEach(function(c){
     var a=c==='Todos';
-    btns+='<button class="filter-btn'+(a?' active':'')+'" onclick="filterBy(\''+c+'\',this)">'+c+'</button>';
+    var isSale=c==='SALE';
+    var isSoon=c==='Próximamente';
+    var style=isSale?' style="color:#ff6f00;border-color:rgba(255,111,0,.4)"':isSoon?' style="color:#ab47bc;border-color:rgba(171,71,188,.4)"':'';
+    pills+='<a class="cat-pill'+(a?' active':'')+'" href="#catalogo" onclick="filterBy(\''+c+'\',this);return false"'+style+'>'+c+'</a>';
+    btns+='<button class="filter-btn'+(a?' active':'')+'" onclick="filterBy(\''+c+'\',this)"'+style+'>'+c+'</button>';
   });
+  var cp=document.getElementById('catPills');
+  if(cp)cp.innerHTML=pills;
   document.getElementById('filterBar').innerHTML=btns;
 }
 
@@ -413,88 +512,165 @@ function filterBy(cat,el){
 }
 
 function renderProducts(){
-  var list=activeFilter==='Todos'?PRODUCTS:PRODUCTS.filter(function(p){return p.cat===activeFilter});
+  var list=activeFilter==='Todos'
+    ?PRODUCTS.filter(function(p){return p.cat!=='SALE'&&p.cat!=='Próximamente';})
+    :PRODUCTS.filter(function(p){return p.cat===activeFilter;});
+
+  if((activeFilter==='SALE'||activeFilter==='Próximamente')&&list.length===0){
+    var msg=activeFilter==='SALE'
+      ?'<div style="text-align:center;padding:4rem 1rem;color:var(--mist)"><div style="font-size:3rem;margin-bottom:1rem">&#127991;</div><p style="font-family:\'Barlow Condensed\',sans-serif;font-size:1rem;letter-spacing:.2em;text-transform:uppercase">Próximamente habrá productos en oferta</p></div>'
+      :'<div style="text-align:center;padding:4rem 1rem;color:var(--mist)"><div style="font-size:3rem;margin-bottom:1rem">&#128307;</div><p style="font-family:\'Barlow Condensed\',sans-serif;font-size:1rem;letter-spacing:.2em;text-transform:uppercase">Nuevos productos próximamente</p></div>';
+    document.getElementById('productsGrid').innerHTML=msg;
+    return;
+  }
+
   var html='';
   list.forEach(function(p){
-    var img=p.imgs&&p.imgs.length>0?'<img src="'+p.imgs[0]+'" alt="'+p.name+'" loading="lazy" onerror="this.parentNode.innerHTML=\'<div class=\\\'card-img-placeholder\\\'>'+p.icon+'</div>\'">':'<div class="card-img-placeholder">'+p.icon+'</div>';
-    var badge=p.badge?'<span class="card-badge badge-'+p.badge+'">'+(p.badge==='new'?'Nuevo':'Promo')+'</span>':'';
-    html+='<div class="product-card" onclick="openModal('+p.id+')">';
+    var isOut=p.stock===0;
+    var isLast=p.stock===1;
+    var img=mkImg(p);
+    var badgeLabel=isOut?'Agotado':p.badge==='new'?'Nuevo':p.badge==='promo'?'Promo':'';
+    var badgeCls=isOut?'agotado':p.badge||'';
+    var badge=badgeLabel?'<span class="card-badge badge-'+badgeCls+'">'+badgeLabel+'</span>':'';
+    var stockBadge=isOut
+      ?'<span class="stock-badge stock-out">Agotado</span>'
+      :isLast
+        ?'<span class="stock-badge stock-last">&#9889; Última unidad</span>'
+        :'<span class="stock-badge stock-ok">&#10003; Disponible</span>';
+    var colorsHtml='';
+    if(p.colors&&p.colors.length>0){
+      colorsHtml='<div class="card-colors">';
+      p.colors.forEach(function(c){
+        var hex=COLOR_MAP[c.color]||'#555';
+        colorsHtml+='<span class="color-dot" style="background:'+hex+'" title="'+c.color+'"></span>';
+      });
+      colorsHtml+='</div>';
+    }
+    var sizesHtml='';
+    if(p.sizes&&p.sizes.length>0){
+      sizesHtml='<div class="card-sizes">';
+      p.sizes.forEach(function(s){
+        var cls=s.stock>0?'size-btn avail':'size-btn out';
+        sizesHtml+='<span class="'+cls+'">'+s.talle+'</span>';
+      });
+      sizesHtml+='</div>';
+    }
+    var btn=isOut
+      ?'<button class="btn-add" disabled style="opacity:.4;cursor:not-allowed">Agotado</button>'
+      :'<button class="btn-add" onclick="event.stopPropagation();addToCart('+p.id+')">+ Agregar al carrito</button>';
+    html+='<div class="product-card'+(isOut?' agotado':'')+'" onclick="openModal('+p.id+')">';
     html+='<div class="card-img" style="position:relative">'+img+badge+'</div>';
-    html+='<div class="card-info"><p class="card-cat">'+p.cat+'</p><h3 class="card-name">'+p.name+'</h3>';
+    html+='<div class="card-info">';
+    html+='<p class="card-cat">'+p.cat+'</p>';
+    html+=stockBadge;
+    html+='<h3 class="card-name">'+p.name+'</h3>';
+    html+=colorsHtml+sizesHtml;
     html+='<p class="card-desc">'+p.desc+'</p>';
-    html+='<div class="card-footer"><span class="card-price">$'+p.price.toLocaleString('es-AR')+'<small>ARS</small></span>';
-    html+='<button class="btn-add" onclick="event.stopPropagation();addToCart('+p.id+')">+ Agregar al carrito</button></div>';
+    html+='<div class="card-footer"><span class="card-price">$'+p.price.toLocaleString('es-AR')+'<small>ARS</small></span>'+btn+'</div>';
     html+='</div></div>';
   });
   document.getElementById('productsGrid').innerHTML=html;
 }
 
 function openModal(id){
-  currentP=PRODUCTS.find(function(p){return p.id===id});
+  currentP=PRODUCTS.find(function(p){return p.id===id;});
   currentIdx=0;
   document.getElementById('modalCat').textContent=currentP.cat;
   document.getElementById('modalName').textContent=currentP.name;
   document.getElementById('modalPrice').textContent='$'+currentP.price.toLocaleString('es-AR')+' ARS';
   document.getElementById('modalDesc').textContent=currentP.desc;
+  var isOut=currentP.stock===0;
+  var isLast=currentP.stock===1;
+  var stockEl=document.getElementById('modalStockBadge');
+  stockEl.className='stock-badge '+(isOut?'stock-out':isLast?'stock-last':'stock-ok');
+  stockEl.textContent=isOut?'Agotado':isLast?'Última unidad':'Disponible';
+  var colDiv=document.getElementById('modalColorsWrap');
+  if(currentP.colors&&currentP.colors.length>0){
+    var ch='<p class="modal-colors-label">Color</p><div class="modal-colors">';
+    currentP.colors.forEach(function(c,i){
+      var hex=COLOR_MAP[c.color]||'#555';
+      ch+='<span class="modal-color-dot'+(i===0?' sel':'')+'" style="background:'+hex+'" title="'+c.color+'" onclick="selectColor(this)"><span class="dot-label">'+c.color+'</span></span>';
+    });
+    ch+='</div>';
+    colDiv.innerHTML=ch; colDiv.style.display='block';
+  } else { colDiv.innerHTML=''; colDiv.style.display='none'; }
+  var szDiv=document.getElementById('modalSizesWrap');
+  if(currentP.sizes&&currentP.sizes.length>0){
+    var sh='<p class="modal-sizes-label">Talle</p><div class="modal-sizes">';
+    currentP.sizes.forEach(function(s,i){
+      var avail=s.stock>0;
+      sh+='<button class="modal-size-btn'+(avail?(i===0?' avail sel':' avail'):'  out')+'"'+(avail?'':'  disabled')+' onclick="selectSize(this)">'+s.talle+'</button>';
+    });
+    sh+='</div>';
+    szDiv.innerHTML=sh; szDiv.style.display='block';
+  } else { szDiv.innerHTML=''; szDiv.style.display='none'; }
+  var addBtn=document.getElementById('modalAddBtn');
+  if(addBtn){ addBtn.disabled=isOut; addBtn.style.opacity=isOut?'.4':'1'; addBtn.style.cursor=isOut?'not-allowed':'pointer'; addBtn.textContent=isOut?'Agotado':'+ Agregar al carrito'; }
   buildGallery();
   document.getElementById('productModal').classList.add('open');
   document.body.style.overflow='hidden';
+}
+
+function selectColor(el){
+  el.closest('.modal-colors').querySelectorAll('.modal-color-dot').forEach(function(d){d.classList.remove('sel');});
+  el.classList.add('sel');
+}
+function selectSize(el){
+  if(el.disabled)return;
+  el.closest('.modal-sizes').querySelectorAll('.modal-size-btn').forEach(function(b){b.classList.remove('sel');});
+  el.classList.add('sel');
 }
 
 function buildGallery(){
   var g=document.getElementById('modalGallery');
   var imgs=currentP.imgs||[];
   if(imgs.length===0){g.innerHTML='<div class="gallery-main"><div class="gallery-main-placeholder">'+currentP.icon+'</div></div>';return;}
-  var nav=imgs.length>1?'<button class="gallery-nav gallery-prev" onclick="navImg(-1)">\u2039</button><button class="gallery-nav gallery-next" onclick="navImg(1)">\u203a</button>':'';
+  var nav=imgs.length>1?'<button class="gallery-nav gallery-prev" onclick="navImg(-1)">&#8249;</button><button class="gallery-nav gallery-next" onclick="navImg(1)">&#8250;</button>':'';
   var thumbs='';
   if(imgs.length>1){
     thumbs='<div class="gallery-thumbs">';
-    imgs.forEach(function(u,i){thumbs+='<img class="gallery-thumb'+(i===0?' active':'')+'" src="'+u+'" onclick="setImg('+i+')" onerror="this.style.display=\'none\'">'});
+    imgs.forEach(function(u,i){thumbs+='<img class="gallery-thumb'+(i===0?' active':'')+'" src="'+u+'" onclick="setImg('+i+')">';});
     thumbs+='</div>';
   }
-  g.innerHTML='<div style="position:relative"><div class="gallery-main"><img id="gMain" src="'+imgs[0]+'" alt="'+currentP.name+'" onerror="this.parentNode.innerHTML=\'<div class=\\\'gallery-main-placeholder\\\'>'+currentP.icon+'</div>\'"></div>'+nav+'</div>'+thumbs;
+  g.innerHTML='<div style="position:relative"><div class="gallery-main"><img id="gMain" src="'+imgs[0]+'" alt="'+currentP.name+'"></div>'+nav+'</div>'+thumbs;
 }
 
 function setImg(i){
   currentIdx=i;
   var el=document.getElementById('gMain');
   if(el)el.src=currentP.imgs[i];
-  document.querySelectorAll('.gallery-thumb').forEach(function(t,j){t.classList.toggle('active',j===i)});
+  document.querySelectorAll('.gallery-thumb').forEach(function(t,j){t.classList.toggle('active',j===i);});
 }
-
 function navImg(d){
   var n=(currentIdx+d+currentP.imgs.length)%currentP.imgs.length;
   setImg(n);
 }
-
 function closeModal(){
   document.getElementById('productModal').classList.remove('open');
   document.body.style.overflow='';
 }
 
-document.getElementById('productModal').addEventListener('click',function(e){if(e.target===this)closeModal()});
-
 function addToCart(id){
-  var p=PRODUCTS.find(function(x){return x.id===id});
-  var ex=cart.find(function(x){return x.id===id});
+  var p=PRODUCTS.find(function(x){return x.id===id;});
+  if(!p||p.stock===0)return;
+  var ex=cart.find(function(x){return x.id===id;});
   if(ex)ex.qty++;else cart.push(Object.assign({},p,{qty:1}));
   updateCartUI();
-  showNotif('\u2713 '+p.name+' agregado al carrito');
+  showNotif('&#10003; '+p.name+' agregado al carrito');
 }
-
-function addFromModal(){if(currentP)addToCart(currentP.id);closeModal();}
+function addFromModal(){if(currentP&&currentP.stock>0){addToCart(currentP.id);closeModal();}}
 
 function updateQty(id,d){
-  var item=cart.find(function(x){return x.id===id});
+  var item=cart.find(function(x){return x.id===id;});
   if(!item)return;
   item.qty+=d;
-  if(item.qty<=0)cart=cart.filter(function(x){return x.id!==id});
+  if(item.qty<=0)cart=cart.filter(function(x){return x.id!==id;});
   updateCartUI();
 }
 
 function updateCartUI(){
-  var total=cart.reduce(function(s,i){return s+i.price*i.qty},0);
-  var count=cart.reduce(function(s,i){return s+i.qty},0);
+  var total=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
+  var count=cart.reduce(function(s,i){return s+i.qty;},0);
   var badge=document.getElementById('cartBadge');
   badge.textContent=count;
   badge.classList.toggle('show',count>0);
@@ -502,14 +678,14 @@ function updateCartUI(){
   var foot=document.getElementById('cartFoot');
   var items=document.getElementById('cartItems');
   if(cart.length===0){
-    items.innerHTML='<div class="cart-empty"><div class="cart-empty-icon">\ud83c\udf92</div><p>Tu carrito está vacío.</p></div>';
+    items.innerHTML='<div class="cart-empty"><div class="cart-empty-icon">&#127874;</div><p>Tu carrito está vacío.</p></div>';
     foot.style.display='none';
-  }else{
+  } else {
     foot.style.display='block';
     var h='';
     cart.forEach(function(i){
-      var img=i.imgs&&i.imgs.length>0?'<img class="cart-item-img" src="'+i.imgs[0]+'" onerror="this.outerHTML=\'<div class=\\\'cart-item-icon\\\'>'+i.icon+'</div>\'">':'<div class="cart-item-icon">'+i.icon+'</div>';
-      h+='<div class="cart-item">'+img+'<div class="cart-item-info"><p class="cart-item-name">'+i.name+'</p><p class="cart-item-price">$'+(i.price*i.qty).toLocaleString('es-AR')+'</p></div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty('+i.id+',-1)">\u2212</button><span class="qty-n">'+i.qty+'</span><button class="qty-btn" onclick="updateQty('+i.id+',1)">+</button></div></div>';
+      var img=i.imgs&&i.imgs.length>0?'<img class="cart-item-img" src="'+i.imgs[0]+'">':'<div class="cart-item-icon">'+i.icon+'</div>';
+      h+='<div class="cart-item">'+img+'<div class="cart-item-info"><p class="cart-item-name">'+i.name+'</p><p class="cart-item-price">$'+(i.price*i.qty).toLocaleString('es-AR')+'</p></div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty('+i.id+',-1)">&#8722;</button><span class="qty-n">'+i.qty+'</span><button class="qty-btn" onclick="updateQty('+i.id+',1)">+</button></div></div>';
     });
     items.innerHTML=h;
   }
@@ -520,42 +696,9 @@ function toggleCart(){
   document.getElementById('cartOverlay').classList.toggle('open');
 }
 
-function openCheckout(){
-  var total=cart.reduce(function(s,i){return s+i.price*i.qty},0);
-  var h='';
-  cart.forEach(function(i){h+='<div class="sum-row"><span>'+i.name+' x'+i.qty+'</span><span>$'+(i.price*i.qty).toLocaleString('es-AR')+'</span></div>';});
-  h+='<div class="sum-row sum-total"><span>TOTAL</span><span>$'+total.toLocaleString('es-AR')+'</span></div>';
-  document.getElementById('checkoutSum').innerHTML=h;
-  document.getElementById('checkoutOverlay').classList.add('open');
-  toggleCart();
-}
-
-function closeCheckout(){document.getElementById('checkoutOverlay').classList.remove('open');}
-
-function submitOrder(e){
-  e.preventDefault();closeCheckout();
-  var ok=document.createElement('div');
-  ok.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--bg2);border:1px solid var(--accent);color:var(--snow);padding:2.5rem 3.5rem;text-align:center;z-index:9999;font-family:"Barlow Condensed",sans-serif';
-  ok.innerHTML='<div style="font-size:2.5rem;margin-bottom:.8rem">\u2705</div><h3 style="font-family:Bebas Neue;font-size:1.7rem;color:var(--accent2);margin-bottom:.4rem">\u00a1Pedido Recibido!</h3><p style="color:var(--mist);font-size:.88rem">Te contactamos pronto para coordinar pago y entrega.</p><button onclick="this.parentNode.remove()" style="margin-top:1.2rem;background:var(--accent);color:#fff;border:none;padding:.6rem 1.8rem;cursor:pointer;font-family:Bebas Neue;font-size:1rem;letter-spacing:.1em">Cerrar</button>';
-  document.body.appendChild(ok);
-  cart=[];updateCartUI();
-}
-
-var WA_NUMBER='5492616617125';
-
-function consultarWA(id){
-  var p=PRODUCTS.find(function(x){return x.id===id});
-  if(!p)return;
-  var msg='Hola! Me interesa el siguiente producto:\n\n'
-    +'• '+p.name+'\n'
-    +'  Precio: $'+p.price.toLocaleString('es-AR')+' ARS\n\n'
-    +'¿Tienen stock disponible?';
-  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
-}
-
 function enviarPedidoWA(){
   if(cart.length===0)return;
-  var total=cart.reduce(function(s,i){return s+i.price*i.qty},0);
+  var total=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
   var msg='Hola! Quiero consultar disponibilidad de los siguientes productos:\n\n';
   cart.forEach(function(i){
     msg+='• '+i.name+' x'+i.qty+'\n';
@@ -565,27 +708,28 @@ function enviarPedidoWA(){
   msg+='TOTAL ESTIMADO: $'+total.toLocaleString('es-AR')+' ARS\n\n';
   msg+='¿Tienen todo disponible?';
   toggleCart();
-  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
+  window.open('https://wa.me/5492616617125?text='+encodeURIComponent(msg),'_blank');
 }
 
 function sendForm(e){
   e.preventDefault();
   document.getElementById('formOk').style.display='block';
   e.target.reset();
-  setTimeout(function(){document.getElementById('formOk').style.display='none'},5000);
+  setTimeout(function(){document.getElementById('formOk').style.display='none';},5000);
 }
 
 function showNotif(msg){
   var el=document.createElement('div');
-  el.className='notif';el.textContent=msg;
+  el.className='notif';el.innerHTML=msg;
   document.body.appendChild(el);
-  setTimeout(function(){el.remove()},2800);
+  setTimeout(function(){el.remove();},2800);
 }
 
 function toggleMenu(){
-  var links=document.getElementById('navLinks');
-  if(links)links.classList.toggle('open');
+  var nav=document.getElementById('navLinks');
+  if(nav)nav.classList.toggle('open');
 }
+
 
 buildUI();
 renderProducts();
