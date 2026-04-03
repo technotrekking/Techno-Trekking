@@ -670,10 +670,13 @@ function selectColor(el){
   var colorName=el.getAttribute('data-color');
   el.closest('.modal-colors').querySelectorAll('.modal-color-item').forEach(function(d){d.classList.remove('sel');});
   el.classList.add('sel');
+  currentIdx=0;
   if(currentP&&currentP.colorImgs&&colorName&&currentP.colorImgs[colorName]){
     currentP._galleryImgs=currentP.colorImgs[colorName];
-    buildGallery();
+  } else if(currentP) {
+    currentP._galleryImgs=currentP.imgs;
   }
+  buildGallery();
 }
 function selectSize(el){
   if(el.disabled)return;
@@ -698,11 +701,13 @@ function buildGallery(){
 function setImg(i){
   currentIdx=i;
   var el=document.getElementById('gMain');
-  if(el)el.src=currentP.imgs[i];
+  var imgs=currentP._galleryImgs||currentP.imgs||[];
+  if(el)el.src=imgs[i];
   document.querySelectorAll('.gallery-thumb').forEach(function(t,j){t.classList.toggle('active',j===i);});
 }
 function navImg(d){
-  var n=(currentIdx+d+currentP.imgs.length)%currentP.imgs.length;
+  var imgs=currentP._galleryImgs||currentP.imgs||[];
+  var n=(currentIdx+d+imgs.length)%imgs.length;
   setImg(n);
 }
 function closeModal(){
