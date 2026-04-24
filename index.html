@@ -681,7 +681,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
         <span class="pago-tag">💳 Débito</span>
         <span class="pago-tag">💳 Crédito</span>
       </div>
-      <button class="btn-size-guide" onclick="openSizeGuide()">📐 Ver guía de talles</button>
+      <div id="sizeGuideBtn" style="display:none"><button class="btn-size-guide" onclick="openSizeGuide()">📐 Ver guía de talles</button></div>
       <div class="modal-actions">
         <button class="btn-prim" id="modalAddBtn" onclick="addFromModal()">+ Agregar al carrito</button>
       </div>
@@ -935,6 +935,12 @@ function openModal(id){
   if(addBtn){ addBtn.disabled=isOut; addBtn.style.opacity=isOut?'.4':'1'; addBtn.style.cursor=isOut?'not-allowed':'pointer'; addBtn.textContent=isOut?'Agotado':'+ Agregar al carrito'; }
   buildGallery();
   setViewingCount();
+  // Show size guide only for clothing products
+  var hasCloSizes = currentP.sizes && currentP.sizes.some(function(s){
+    return ['S','M','L','XL','S-M','L-XL'].indexOf(s.talle) !== -1;
+  });
+  var sgBtn = document.getElementById('sizeGuideBtn');
+  if(sgBtn) sgBtn.style.display = hasCloSizes ? 'block' : 'none';
   document.getElementById('productModal').classList.add('open');
   document.body.style.overflow='hidden';
   // Push history state so back button closes modal
