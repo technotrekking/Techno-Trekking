@@ -70,8 +70,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 2rem;d
 .mv-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.06em;margin-bottom:.8rem}
 .mv-text{color:var(--mist);font-size:.95rem;font-weight:300;line-height:1.8}
 @media(max-width:700px){.mv-grid{grid-template-columns:1fr;gap:2rem}.mv-divider{width:100%;height:1px;min-height:unset;background:linear-gradient(to right,transparent,rgba(33,150,243,.4),transparent)}}
-#catalogo{padding:5rem 5vw;background:var(--bg)}
-.section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem}
+#catalogo{padding:2.5rem 5vw 5rem;background:var(--bg)}
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.2rem;flex-wrap:wrap;gap:1rem}
 .section-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
 #instagram{padding:4rem 5vw;background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);border-bottom:1px solid rgba(33,150,243,.08)}
 .ig-header{text-align:center;margin-bottom:2.5rem}
@@ -240,8 +240,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 2rem;d
 
 
 /* ── CATEGORY ICONS BAR ── */
-#catIconBar{padding:1.8rem 4vw 0;background:var(--bg2);border-bottom:1px solid rgba(33,150,243,.1)}
-.cat-icon-scroll{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:1.4rem;scrollbar-width:none;-ms-overflow-style:none;justify-content:center;flex-wrap:wrap}
+#catIconBar{padding:.8rem 4vw 0;background:var(--bg2);border-bottom:1px solid rgba(33,150,243,.1)}
+.cat-icon-scroll{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.8rem;scrollbar-width:none;-ms-overflow-style:none;justify-content:center;flex-wrap:wrap}
 .cat-icon-scroll::-webkit-scrollbar{display:none}
 
 .cat-icon-item{display:flex;flex-direction:column;align-items:center;gap:.55rem;cursor:pointer;flex-shrink:0;position:relative;padding:.6rem .7rem;transition:transform .2s}
@@ -416,7 +416,19 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
 .notif{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.75rem 1.5rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;font-size:.85rem;z-index:9999;white-space:nowrap;animation:nfadeIn .3s ease}
 @keyframes nfadeIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:block}.contact-grid{grid-template-columns:1fr;gap:3rem}.footer-grid{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr}.hero-title{font-size:3.2rem}}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr}
+  .hero-title{font-size:3.2rem}
+  #hero{min-height:85vh;padding:0 5vw 8vh}
+  #catalogo{padding:1.5rem 4vw 3rem}
+  #catIconBar{padding:.5rem 3vw 0}
+  .cat-icon-circle{width:52px;height:52px}
+  .cat-icon-circle svg{width:26px;height:26px}
+  .cat-icon-label{font-size:.58rem}
+  .cat-icon-item{padding:.4rem .5rem}
+  .section-header{margin-bottom:.8rem;gap:.6rem}
+  .search-wrap{max-width:100%}
+}
 </style>
 </head>
 <body>
