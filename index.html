@@ -23,18 +23,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#060c16;--bg2:#0a1525;--bg3:#0f1f38;--bg4:#162a4a;--accent:#2196f3;--accent2:#64b5f6;--accent3:#bbdefb;--snow:#e8f4ff;--mist:#7ab0d8;--danger:#f44336}
-/* ── MODO DIURNO ── */
-body{transition:filter .35s ease}
-body.light-mode{filter:invert(1) hue-rotate(180deg)}
-body.light-mode img,
-body.light-mode video,
-body.light-mode #hero,
-body.light-mode .ig-post iframe,
-body.light-mode .ig-post blockquote,
-body.light-mode .gallery-main img,
-body.light-mode .cart-item-img,
-body.light-mode canvas,
-body.light-mode .stk-logo-circle img{filter:invert(1) hue-rotate(180deg)}
+
+/* ── MODO DIURNO — cambia variables CSS + overrides específicos ── */
+body.light-mode{
+  --bg:#f0f4f8;
+  --bg2:#ffffff;
+  --bg3:#e2eaf2;
+  --bg4:#d4e0ec;
+  --snow:#0d1929;
+  --mist:#2c4a62;
+  --danger:#c62828;
+  background:#f0f4f8;
+  color:#0d1929;
+}
+body.light-mode nav{background:rgba(240,244,248,0.97)!important;border-bottom:1px solid rgba(21,101,192,.2)!important;box-shadow:0 2px 8px rgba(0,0,0,.08)!important}
+body.light-mode .nav-brand{color:#0d1929!important}
+body.light-mode .nav-brand span{color:#1565c0!important}
+body.light-mode .nav-links a{color:#0d1929!important}
+body.light-mode .cart-toggle{background:#1565c0!important;color:#fff!important}
+body.light-mode .hamburger{color:#0d1929!important}
+body.light-mode .product-card{background:#fff!important;border-color:rgba(21,101,192,.15)!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important}
+body.light-mode .product-card:hover{border-color:rgba(21,101,192,.4)!important;box-shadow:0 4px 16px rgba(21,101,192,.12)!important}
+body.light-mode .card-img,.light-mode .card-img-placeholder{background:var(--bg3)!important}
+body.light-mode .card-name{color:var(--snow)!important}
+body.light-mode .card-desc{color:var(--mist)!important}
+body.light-mode .btn-add{background:var(--bg3)!important;color:var(--snow)!important;border:1px solid rgba(21,101,192,.2)!important}
+body.light-mode .btn-add:hover{background:#1565c0!important;color:#fff!important}
+body.light-mode .cat-icon-circle{background:#fff!important;border-color:rgba(21,101,192,.25)!important}
+body.light-mode .cat-icon-item.active .cat-icon-circle{background:rgba(21,101,192,.1)!important;border-color:#1565c0!important;box-shadow:none!important}
+body.light-mode .search-input{background:#fff!important;color:#0d1929!important;border-color:rgba(21,101,192,.25)!important}
+body.light-mode .pref-btn{background:#fff!important;border-color:rgba(21,101,192,.2)!important;color:var(--mist)!important}
+body.light-mode .pref-btn.active{background:rgba(21,101,192,.1)!important;border-color:#1565c0!important;color:#0d47a1!important}
+body.light-mode .porque-card{background:#fff!important;border-color:rgba(21,101,192,.12)!important}
+body.light-mode .porque-desc{color:var(--mist)!important}
+body.light-mode .review-card{background:#fff!important;border-color:rgba(21,101,192,.1)!important}
+body.light-mode .review-text{color:var(--mist)!important}
+body.light-mode .faq-item{border-bottom-color:rgba(0,0,0,.1)!important}
+body.light-mode .faq-q{color:var(--snow)!important}
+body.light-mode .faq-a{color:var(--mist)!important}
+body.light-mode .modal-box{background:#fff!important}
+body.light-mode .modal-name,.light-mode .modal-price{color:var(--snow)!important}
+body.light-mode .modal-desc,.light-mode .modal-cat{color:var(--mist)!important}
+body.light-mode .gallery-main{background:var(--bg3)!important}
+body.light-mode .cart-sidebar{background:#fff!important}
+body.light-mode .cart-head h3{color:var(--snow)!important}
+body.light-mode .subcat-pill{background:#fff!important;color:var(--mist)!important;border-color:rgba(21,101,192,.2)!important}
+body.light-mode .subcat-pill.active{background:#1565c0!important;color:#fff!important}
+body.light-mode .size-btn.avail{border-color:rgba(21,101,192,.4)!important;color:#1565c0!important}
+body.light-mode .section-title{color:var(--snow)!important}
+body.light-mode .section-sub,.light-mode .hero-sub{color:var(--mist)!important}
+body.light-mode .mv-text,.light-mode .mv-label{color:var(--snow)!important}
+body.light-mode .mv-label{color:#1565c0!important}
+body.light-mode footer{background:#1a2a3a!important}
+body.light-mode footer *{color:#e8f4ff!important}
+body.light-mode .wa-float{box-shadow:0 4px 20px rgba(37,211,102,.35)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--snow);font-family:'Barlow',sans-serif;overflow-x:hidden}
@@ -385,6 +427,44 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 2rem;d
 .grid-icon.g3{gap:1.5px}.grid-icon.g3 span{width:4px}
 .grid-icon.g4{gap:1px}.grid-icon.g4 span{width:3px}
 
+
+/* ── LAYOUT TARJETA REDISEÑADO ── */
+.card-footer-wrap{margin-bottom:.5rem}
+.card-btn-wrap{width:100%}
+.btn-add-full{width:100%;text-align:center}
+
+/* En grilla 4: mostrar botón pequeño */
+.products-grid.grid-4 .card-desc{display:none}
+.products-grid.grid-4 .card-btn-wrap .btn-add-full{font-size:.6rem;padding:.35rem .4rem}
+.products-grid.grid-4 .card-price{font-size:1.1rem}
+.products-grid.grid-4 .card-price small{font-size:.55rem}
+.products-grid.grid-4 .card-name{font-size:.78rem}
+.products-grid.grid-4 .stock-badge{font-size:.55rem;padding:.1rem .35rem}
+.products-grid.grid-4 .card-colors{display:none}
+.products-grid.grid-4 .card-sizes{display:none}
+
+/* En grilla 8: ocultar botón, solo ver imagen, nombre y precio */
+.products-grid.grid-8 .card-desc,
+.products-grid.grid-8 .card-btn-wrap,
+.products-grid.grid-8 .card-colors,
+.products-grid.grid-8 .card-sizes,
+.products-grid.grid-8 .stock-badge{display:none}
+.products-grid.grid-8 .card-name{font-size:.62rem;line-height:1.2}
+.products-grid.grid-8 .card-price{font-size:.9rem}
+.products-grid.grid-8 .card-price small{font-size:.5rem}
+.products-grid.grid-8 .card-info{padding:.5rem .5rem .4rem}
+.products-grid.grid-8 .card-cat{font-size:.5rem}
+.products-grid.grid-8 .card-footer-wrap{margin-bottom:0}
+
+/* En grilla 2 mobile: ajuste */
+.products-grid.grid-2 .card-desc{font-size:.75rem;-webkit-line-clamp:2;line-clamp:2}
+.products-grid.grid-2 .card-name{font-size:.82rem}
+
+/* En grilla 1 mobile: layout horizontal */
+.products-grid.grid-1 .product-card{display:grid;grid-template-columns:140px 1fr;min-height:140px}
+.products-grid.grid-1 .card-img{height:100%;min-height:140px;border-radius:0}
+.products-grid.grid-1 .card-info{padding:1rem}
+
 /* ── SEARCH RESULTS ── */
 .search-no-results{text-align:center;padding:3rem 1rem;color:var(--mist);font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.2em;text-transform:uppercase}
 
@@ -682,7 +762,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
         </div>
       </div>
 
-      <div class="pref-divider"></div>
+      <div class="pref-divider" id="mobileDivider"></div>
 
       <!-- GRILLA MOBILE -->
       <div class="pref-group" id="mobileGridGroup">
@@ -1246,11 +1326,10 @@ function renderProducts(){
       sizesHtml+='</div>';
     }
     var hasOptions=(p.colors&&p.colors.length>0)||(p.sizes&&p.sizes.filter(function(s){return s.stock>0;}).length>1);
-    var btn=isOut
-      ?'<button class="btn-add" disabled style="opacity:.4;cursor:not-allowed">Agotado</button>'
-      :hasOptions
-        ?'<button class="btn-add" onclick="event.stopPropagation();openModal('+p.id+')" style="display:flex;align-items:center;justify-content:center;gap:.35rem">Elegir opciones</button>'
-        :'<button class="btn-add" onclick="event.stopPropagation();addToCart('+p.id+')">+ Agregar</button>';
+    var btnLabel=isOut?'Agotado':'+ Agregar al carrito';
+    var btnOnclick=isOut?'':(hasOptions?'event.stopPropagation();openModal('+p.id+')':'event.stopPropagation();addToCart('+p.id+')');
+    var btnStyle=isOut?'opacity:.4;cursor:not-allowed':'';
+    var btn='<button class="btn-add btn-add-full"'+(isOut?' disabled':'')+' style="'+btnStyle+'" onclick="'+btnOnclick+'">'+btnLabel+'</button>';
     html+='<div class="product-card'+(isOut?' agotado':'')+'" onclick="openModal('+p.id+')">';
     html+='<div class="card-img" style="position:relative">'+img+badge+'</div>';
     html+='<div class="card-info">';
@@ -1762,11 +1841,12 @@ function updatePrefVisibility(){
   var isMob = window.innerWidth <= 700;
   var dg = document.getElementById('desktopGridGroup');
   var dd = document.getElementById('desktopDivider');
-  if(dg) dg.style.display = isMob ? 'none' : '';
-  if(dd) dd.style.display = isMob ? 'none' : '';
   var mg = document.getElementById('mobileGridGroup');
-  if(mg) mg.style.display = isMob ? '' : 'none';
-  var md = mg && mg.previousElementSibling;
+  var md = document.getElementById('mobileDivider');
+  if(dg) dg.style.display = isMob ? 'none' : 'flex';
+  if(dd) dd.style.display = isMob ? 'none' : 'block';
+  if(mg) mg.style.display = isMob ? 'flex' : 'none';
+  if(md) md.style.display = isMob ? 'block' : 'none';
 }
 
 window.addEventListener('resize', function(){
@@ -1775,13 +1855,18 @@ window.addEventListener('resize', function(){
 });
 
 (function initPrefs(){
-  // Theme
-  if(localStorage.getItem('tt_theme')==='light'){
+  // Theme — default siempre oscuro, a menos que el usuario haya elegido claro
+  var savedTheme = localStorage.getItem('tt_theme');
+  if(savedTheme === 'light'){
     document.body.classList.add('light-mode');
     var lb = document.getElementById('btnLight');
     var db = document.getElementById('btnDark');
     if(lb) lb.classList.add('active');
     if(db) db.classList.remove('active');
+  } else {
+    // Asegurar modo oscuro por defecto
+    document.body.classList.remove('light-mode');
+    localStorage.setItem('tt_theme','dark');
   }
   // Grid mobile
   var gm = localStorage.getItem('tt_grid_mobile');
