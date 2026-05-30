@@ -693,7 +693,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
     <span class="mobile-menu-title">Menú</span>
     <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
   </div>
-  <nav class="mobile-menu-links">
+  <div class="mobile-menu-links">
     <a href="#hero"          onclick="toggleMenu()"><span class="mm-icon">🏠</span> Inicio</a>
     <a href="#catalogo"      onclick="toggleMenu()"><span class="mm-icon">🏕️</span> Catálogo</a>
     <a href="#nosotros"      onclick="toggleMenu()"><span class="mm-icon">🏔️</span> Nosotros</a>
@@ -702,7 +702,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
     <a href="#reseñas"       onclick="toggleMenu()"><span class="mm-icon">⭐</span> Reseñas</a>
     <a href="#faq"           onclick="toggleMenu()"><span class="mm-icon">❓</span> Preguntas frecuentes</a>
     <a href="#contacto"      onclick="toggleMenu()"><span class="mm-icon">📬</span> Contacto</a>
-  </nav>
+  </div>
 </div>
 <section id="hero">
   <div class="hero-bg"></div>
@@ -1200,6 +1200,15 @@ footer{background:var(--bg2);border-top:1px solid rgba(33,150,243,.08);padding:3
 </a>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://www.instagram.com/embed.js"></script>
 <script>
+// ═══════════════════════════════════════════════════════════════════
+// CONFIGURACIÓN GOOGLE SHEETS — completá estas dos URLs
+// ═══════════════════════════════════════════════════════════════════
+var TT_CONFIG = {
+  // URL del Google Apps Script — sirve tanto precios como historial de pedidos
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxMvyTtjYyIODOvf6Kaj5cZ3ac7yUwJxHRSFi7KDb02bSVvNRB8zlk0kxkwzCxiK5b3/exec'
+};
+// ═══════════════════════════════════════════════════════════════════
+
 var PRODUCTS=[
 {"id":1,"name":"Mochila 30L Arpenaz Quechua","cat":"Próximamente","price":55000,"badge":"","icon":"🎒","stock":0,"colors":[{"color":"AZUL","stock":0},{"color":"NEGRO","stock":0},{"color":"GRIS","stock":0}],"sizes":[{"talle":"30L","stock":0}],"desc":"¿Buscas una mochila para hacer una escapada en plena naturaleza? El modelo NH Arpenaz 100 de 30 litros es cómodo y está bien equipado para acompañarte en tus rutas de senderismo con poco desnivel.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532259/1_kvgupm.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532259/3_nv7xst.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/2_hc1wle.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/11_azmekz.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532259/4_pzwrtv.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/6_shudfn.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/5_lf74c7.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/12_duzg96.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/7_rqitmd.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532261/9_xdplzl.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/8_fe5x0p.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/13_mtfgry.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532261/10_wegoqg.png"],"colorImgs":{"AZUL":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532259/1_kvgupm.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532259/3_nv7xst.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/2_hc1wle.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/11_azmekz.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532261/10_wegoqg.png"],"NEGRO":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532259/4_pzwrtv.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/6_shudfn.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/5_lf74c7.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/12_duzg96.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532261/10_wegoqg.png"],"GRIS":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/7_rqitmd.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532261/9_xdplzl.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532260/8_fe5x0p.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532258/13_mtfgry.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775532261/10_wegoqg.png"]},"subcat":"Próximamente"},
 {"id":2,"name":"Mochila 20L Arpenaz Quechua","cat":"Mochilas","price":40000,"badge":"","icon":"🎒","stock":1,"colors":[{"color":"AZUL","stock":1},{"color":"NEGRO","stock":0},{"color":"VERDE AGUA","stock":0},{"color":"AZUL CELESTE","stock":0},{"color":"MOSTAZA","stock":0}],"sizes":[{"talle":"20L","stock":2}],"desc":"Mochila cómoda para iniciación al senderismo. Espalda y tirantes acolchados, reposapulgares, cinturón de pecho, 2 bolsillos con cierre, compartimento grande y 2 porta botellas. Disponible en Azul y Negro. Próximamente en más colores.","imgs":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246104/15_rjf9r9.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246104/15_rjf9r9.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246110/18_js65eq.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246112/11_cbypx9.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246105/14_l8g1jj.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246107/17_r2qgxt.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246107/16_ygrisj.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246110/3_gokbi8.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246113/9_zwejjm.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246105/13_isz7tk.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246112/7_zpc8in.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/20_cys3wo.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/21_l2cxyc.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246115/5_vaagzu.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246104/1_yabjrs.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246108/2_oifosm.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246113/8_qabpao.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246108/19_pgjhfv.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246114/4_sjr1np.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246106/12_mcaaa4.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246107/10_eci7jf.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246113/6_b5wskv.png"],"colorImgs":{"AZUL":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246104/15_rjf9r9.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246107/16_ygrisj.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246107/17_r2qgxt.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/21_l2cxyc.png"],"NEGRO":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246110/18_js65eq.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246108/19_pgjhfv.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/20_cys3wo.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/21_l2cxyc.png"],"VERDE AGUA":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246104/1_yabjrs.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246108/2_oifosm.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246110/3_gokbi8.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246113/6_b5wskv.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246115/5_vaagzu.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246114/4_sjr1np.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/21_l2cxyc.png"],"AZUL CELESTE":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246106/12_mcaaa4.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246105/13_isz7tk.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246105/14_l8g1jj.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/21_l2cxyc.png"],"MOSTAZA":["https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246112/7_zpc8in.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246113/8_qabpao.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246113/9_zwejjm.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246112/11_cbypx9.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246107/10_eci7jf.png","https://res.cloudinary.com/dndzwnhrk/image/upload/v1775246109/21_l2cxyc.png"]},"subcat":"Mochilas"},
@@ -1633,6 +1642,19 @@ function enviarPedidoWA(){
   msg+='─────────────────\n';
   msg+='TOTAL ESTIMADO: $'+total.toLocaleString('es-AR')+' ARS\n\n';
   msg+='¿Tienen todo disponible?';
+  // Registrar pedido en Google Sheets (silencioso, no bloquea el flujo)
+  registrarPedidoEnSheets({
+    fecha: new Date().toLocaleString('es-AR', {timeZone:'America/Argentina/Mendoza'}),
+    productos: cart.map(function(i){
+      var det = i.name;
+      if(i._selectedColor) det += ' [' + i._selectedColor + ']';
+      if(i._selectedSize)  det += ' [T.' + i._selectedSize + ']';
+      det += ' x' + i.qty;
+      return det;
+    }).join(' | '),
+    total: total
+  });
+
   toggleCart();
   window.open('https://wa.me/5492616617125?text='+encodeURIComponent(msg),'_blank');
 }
@@ -2017,9 +2039,43 @@ function submitReview(){
   if(sent) sent.style.display='block';
 }
 
+// ── CARGA DE PRECIOS DINÁMICOS ────────────────────────────────────
+async function loadPricesFromSheets() {
+  if (!TT_CONFIG.SCRIPT_URL) return;
+  try {
+    var res = await fetch(TT_CONFIG.SCRIPT_URL + '?action=precios');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var precios = await res.json();
+    Object.keys(precios).forEach(function(id) {
+      var prod = PRODUCTS.find(function(x){ return x.id === parseInt(id); });
+      if (prod && precios[id] > 0) prod.price = precios[id];
+    });
+    console.log('[TT] Precios actualizados desde Google Sheets ✓');
+  } catch(err) {
+    console.warn('[TT] Precios: usando valores locales.', err.message);
+  }
+}
+
+// ── REGISTRO DE PEDIDO EN GOOGLE SHEETS ──────────────────────────
+function registrarPedidoEnSheets(pedido) {
+  if (!TT_CONFIG.SCRIPT_URL) return;
+  try {
+    var params = new URLSearchParams({
+      action:    'pedido',
+      fecha:     pedido.fecha,
+      productos: pedido.productos,
+      total:     pedido.total
+    });
+    // GET con no-cors: el script ejecuta igual, no leemos respuesta
+    fetch(TT_CONFIG.SCRIPT_URL + '?' + params.toString(), { mode: 'no-cors' })
+      .catch(function(){});
+  } catch(e){}
+}
+
 buildUI();
-renderProducts();
 updateCartUI();
+// Carga precios desde Sheets (si está configurado) y luego renderiza
+loadPricesFromSheets().then(function(){ renderProducts(); });
 </script>
 </body>
 </html>
