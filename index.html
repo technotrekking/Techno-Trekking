@@ -2056,6 +2056,32 @@ async function loadPricesFromSheets() {
   }
 }
 
+// ── CARGA PRODUCTOS NUEVOS DESDE GOOGLE SHEETS ────────────────────
+// Solo agrega productos cuyo id NO existe en el array hardcodeado.
+// Los productos existentes conservan sus datos (colorImgs, etc.)
+// y solo se les actualiza el precio vía loadPricesFromSheets().
+async function loadNewProductsFromSheets() {
+  if (!TT_CONFIG.SCRIPT_URL) return;
+  try {
+    var res = await fetch(TT_CONFIG.SCRIPT_URL + '?action=productos');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var sheetsProducts = await res.json();
+    if (!Array.isArray(sheetsProducts) || sheetsProducts.length === 0) return;
+
+    var added = 0;
+    sheetsProducts.forEach(function(p) {
+      var exists = PRODUCTS.find(function(x){ return x.id === p.id; });
+      if (!exists) {
+        PRODUCTS.push(p);
+        added++;
+      }
+    });
+    if (added > 0) console.log('[TT] ' + added + ' producto(s) nuevo(s) cargado(s) desde Google Sheets ✓');
+  } catch(err) {
+    console.warn('[TT] Productos Sheets: usando solo los locales.', err.message);
+  }
+}
+
 // ── REGISTRO DE PEDIDO EN GOOGLE SHEETS ──────────────────────────
 function registrarPedidoEnSheets(pedido) {
   if (!TT_CONFIG.SCRIPT_URL) return;
@@ -2074,8 +2100,11 @@ function registrarPedidoEnSheets(pedido) {
 
 buildUI();
 updateCartUI();
-// Carga precios desde Sheets (si está configurado) y luego renderiza
-loadPricesFromSheets().then(function(){ renderProducts(); });
+// Carga precios Y productos nuevos desde Sheets, luego renderiza
+Promise.all([
+  loadPricesFromSheets(),
+  loadNewProductsFromSheets()
+]).then(function(){ renderProducts(); });
 </script>
 </body>
 </html>
