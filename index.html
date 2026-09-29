@@ -1285,6 +1285,7 @@ function renderProducts(){
   if(searchQuery){
     list=list.filter(function(p){
       return p.name.toLowerCase().indexOf(searchQuery)!==-1 ||
+             (p.colorName&&p.colorName.toLowerCase().indexOf(searchQuery)!==-1) ||
              p.cat.toLowerCase().indexOf(searchQuery)!==-1 ||
              (p.subcat&&p.subcat.toLowerCase().indexOf(searchQuery)!==-1) ||
              p.desc.toLowerCase().indexOf(searchQuery)!==-1;
@@ -1308,15 +1309,18 @@ function renderProducts(){
     var isOut=p.stock===0;
     var isLast=p.stock===1;
     var img=mkImg(p);
-    var badgeLabel=isOut?'Agotado':p.badge==='new'?'Nuevo':p.badge==='promo'?'Promo':'';
+    var badgeLabel=isOut?'Próximamente':p.badge==='new'?'Nuevo':p.badge==='promo'?'Promo':'';
     var badgeCls=isOut?'agotado':p.badge||'';
     var badge=badgeLabel?'<span class="card-badge badge-'+badgeCls+'">'+badgeLabel+'</span>':'';
     var stockBadge=isOut
-      ?'<span class="stock-badge stock-out">Agotado</span>'
+      ?'<span class="stock-badge stock-out">Próximamente</span>'
       :isLast
         ?'<span class="stock-badge stock-last">&#9889; Última unidad</span>'
         :'<span class="stock-badge stock-ok">&#10003; Disponible</span>';
     var colorsHtml='';
+    if(p.colorName){
+      colorsHtml='<div class="card-colorname" style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem"><span class="color-dot" style="background:'+(p.colorHex||COLOR_MAP[p.colorName]||'#555')+'"></span><span style="font-family:\'Barlow Condensed\',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mist)">'+p.colorName+'</span></div>';
+    }
     if(p.colors&&p.colors.length>0){
       colorsHtml='<div class="card-colors">';
       p.colors.forEach(function(c){
@@ -1335,7 +1339,7 @@ function renderProducts(){
       sizesHtml+='</div>';
     }
     var hasOptions=(p.colors&&p.colors.length>0)||(p.sizes&&p.sizes.filter(function(s){return s.stock>0;}).length>1);
-    var btnLabel=isOut?'Agotado':'+ Agregar al carrito';
+    var btnLabel=isOut?'Próximamente':'+ Agregar al carrito';
     var btnOnclick=isOut?'':(hasOptions?'event.stopPropagation();openModal('+p.id+')':'event.stopPropagation();addToCart('+p.id+')');
     var btnStyle=isOut?'opacity:.4;cursor:not-allowed':'';
     var btn='<button class="btn-add btn-add-full"'+(isOut?' disabled':'')+' style="'+btnStyle+'" onclick="'+btnOnclick+'">'+btnLabel+'</button>';
@@ -1355,11 +1359,11 @@ function renderProducts(){
   setTimeout(function(){ animateCards(); applyGrid(); }, 30);
 }
 
-function openModal(id){
+function openModal(id,noPush){
   currentP=PRODUCTS.find(function(p){return p.id===id;});
   currentIdx=0;
   document.getElementById('modalCat').textContent=currentP.cat;
-  document.getElementById('modalName').textContent=currentP.name;
+  document.getElementById('modalName').textContent=currentP.name+(currentP.colorName?' — '+currentP.colorName:'');
   document.getElementById('modalPrice').textContent=currentP.price===0?'Consultar precio':'$'+currentP.price.toLocaleString('es-AR')+' ARS';
   document.getElementById('modalDesc').textContent=currentP.desc;
   // Combo info in modal
@@ -1383,7 +1387,7 @@ function openModal(id){
   var isLast=currentP.stock===1;
   var stockEl=document.getElementById('modalStockBadge');
   stockEl.className='stock-badge '+(isOut?'stock-out':isLast?'stock-last':'stock-ok');
-  stockEl.textContent=isOut?'Agotado':isLast?'Última unidad':'Disponible';
+  stockEl.textContent=isOut?'Próximamente':isLast?'Última unidad':'Disponible';
   var colDiv=document.getElementById('modalColorsWrap');
   if(currentP.colors&&currentP.colors.length>0){
     var ch='<span class="modal-colors-label">Color</span><div class="modal-colors">';
@@ -1428,18 +1432,29 @@ function openModal(id){
       }
     }
   } else { colDiv.innerHTML=''; colDiv.style.display='none'; }
+  if(currentP.group&&currentP.group.length>1){
+    var gh='<span class="modal-colors-label">Colores</span><div class="modal-colors">';
+    currentP.group.forEach(function(g){
+      var isCur=g.color===currentP.colorName;
+      var can=g.id!==null&&!isCur;
+      gh+='<div class="modal-color-item'+(isCur?' sel':'')+(g.stock>0?'':' unavail')+'"'+(can?' onclick="openModal('+g.id+',true)"':'')+' data-color="'+g.color+'"><div class="modal-color-dot" style="background:'+(g.hex||COLOR_MAP[g.color]||'#555')+'"></div><span class="modal-color-name">'+g.color+'</span></div>';
+    });
+    gh+='</div>';
+    colDiv.innerHTML=gh; colDiv.style.display='block';
+    var hint2=document.getElementById('modalColorHint'); if(hint2)hint2.style.display='none';
+  }
   var szDiv=document.getElementById('modalSizesWrap');
   if(currentP.sizes&&currentP.sizes.length>0){
     var sh='<span class="modal-sizes-label">Talle</span><div class="modal-sizes">';
     currentP.sizes.forEach(function(s,i){
       var avail=s.stock>0;
-      sh+='<button class="modal-size-btn'+(avail?(i===0?' avail sel':' avail'):'  out')+'"'+(avail?'':'  disabled')+' onclick="selectSize(this)">'+s.talle+'</button>';
+      sh+='<button class="modal-size-btn'+(avail?(i===currentP.sizes.findIndex(function(x){return x.stock>0;})?' avail sel':' avail'):'  out')+'"'+(avail?'':'  disabled')+' onclick="selectSize(this)">'+s.talle+'</button>';
     });
     sh+='</div>';
     szDiv.innerHTML=sh; szDiv.style.display='block';
   } else { szDiv.innerHTML=''; szDiv.style.display='none'; }
   var addBtn=document.getElementById('modalAddBtn');
-  if(addBtn){ addBtn.disabled=isOut; addBtn.style.opacity=isOut?'.4':'1'; addBtn.style.cursor=isOut?'not-allowed':'pointer'; addBtn.textContent=isOut?'Agotado':'+ Agregar al carrito'; }
+  if(addBtn){ addBtn.disabled=isOut; addBtn.style.opacity=isOut?'.4':'1'; addBtn.style.cursor=isOut?'not-allowed':'pointer'; addBtn.textContent=isOut?'Próximamente':'+ Agregar al carrito'; }
   buildGallery();
   setViewingCount();
   // Show size guide only for clothing products
@@ -1451,7 +1466,7 @@ function openModal(id){
   document.getElementById('productModal').classList.add('open');
   document.body.style.overflow='hidden';
   // Push history state so back button closes modal
-  history.pushState({modal:true},'','');
+  if(!noPush)history.pushState({modal:true},'','');
 }
 
 function selectColor(el){
@@ -1527,8 +1542,9 @@ function closeModal(fromHistory){
 function addToCart(id){
   var p=PRODUCTS.find(function(x){return x.id===id;});
   if(!p||p.stock===0)return;
-  var ex=cart.find(function(x){return x.id===id;});
-  if(ex)ex.qty++;else cart.push(Object.assign({},p,{qty:1,_selectedColor:'',_selectedSize:''}));
+  var key=id+'||';
+  var ex=cart.find(function(x){return x._key===key;});
+  if(ex)ex.qty++;else cart.push(Object.assign({},p,{qty:1,_key:key,_selectedColor:p.colorName||'',_selectedSize:''}));
   updateCartUI();
   playCartSound();
   showNotif('&#10003; '+p.name+' agregado al carrito');
@@ -1549,17 +1565,17 @@ function addFromModal(){
   if(!currentP||currentP.stock===0)return;
   var selColor=document.querySelector('.modal-color-item.sel');
   var selSize =document.querySelector('.modal-size-btn.sel');
-  var colorName=selColor?selColor.getAttribute('data-color'):'';
+  var colorName=selColor?selColor.getAttribute('data-color'):(currentP.colorName||'');
   var sizeName =selSize?selSize.textContent:'';
   addToCartWithDetails(currentP.id,colorName,sizeName);
   closeModal();
 }
 
-function updateQty(id,d){
-  var item=cart.find(function(x){return x.id===id;});
+function updateQty(ix,d){
+  var item=cart[ix];
   if(!item)return;
   item.qty+=d;
-  if(item.qty<=0)cart=cart.filter(function(x){return x.id!==id;});
+  if(item.qty<=0)cart.splice(ix,1);
   updateCartUI();
 }
 
@@ -1578,11 +1594,11 @@ function updateCartUI(){
   } else {
     foot.style.display='block';
     var h='';
-    cart.forEach(function(i){
+    cart.forEach(function(i,ix){
       var img=i.imgs&&i.imgs.length>0?'<img class="cart-item-img" src="'+i.imgs[0]+'">':'<div class="cart-item-icon">'+i.icon+'</div>';
       var colorInfo=i._selectedColor?'<span style="font-size:.7rem;color:var(--mist)">'+i._selectedColor+'</span>':'';
       var sizeInfo=i._selectedSize?'<span style="font-size:.7rem;color:var(--mist)"> · Talle '+i._selectedSize+'</span>':'';
-      h+='<div class="cart-item">'+img+'<div class="cart-item-info"><p class="cart-item-name">'+i.name+'</p>'+colorInfo+sizeInfo+'<p class="cart-item-price">$'+(i.price*i.qty).toLocaleString('es-AR')+'</p></div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty('+i.id+',-1)">&#8722;</button><span class="qty-n">'+i.qty+'</span><button class="qty-btn" onclick="updateQty('+i.id+',1)">+</button></div></div>';
+      h+='<div class="cart-item">'+img+'<div class="cart-item-info"><p class="cart-item-name">'+i.name+'</p>'+colorInfo+sizeInfo+'<p class="cart-item-price">$'+(i.price*i.qty).toLocaleString('es-AR')+'</p></div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty('+ix+',-1)">&#8722;</button><span class="qty-n">'+i.qty+'</span><button class="qty-btn" onclick="updateQty('+ix+',1)">+</button></div></div>';
     });
     h+='<div style="padding:.8rem 0 .2rem"><button class="btn-checkout" onclick="enviarPedidoWA()" style="width:100%;background:#25d366;border:none">💬 Enviar pedido por WhatsApp</button></div>';
     items.innerHTML=h;
@@ -2008,23 +2024,6 @@ function submitReview(){
   if(sent) sent.style.display='block';
 }
 
-// ── CARGA DE PRECIOS DINÁMICOS ────────────────────────────────────
-async function loadPricesFromSheets() {
-  if (!TT_CONFIG.SCRIPT_URL) return;
-  try {
-    var res = await fetch(TT_CONFIG.SCRIPT_URL + '?action=precios');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    var precios = await res.json();
-    Object.keys(precios).forEach(function(id) {
-      var prod = PRODUCTS.find(function(x){ return x.id === parseInt(id); });
-      if (prod && precios[id] > 0) prod.price = precios[id];
-    });
-    console.log('[TT] Precios actualizados desde Google Sheets ✓');
-  } catch(err) {
-    console.warn('[TT] Precios: usando valores locales.', err.message);
-  }
-}
-
 // ── CARGA DE PRODUCTOS DESDE GOOGLE SHEETS ───────────────────────
 // Sheets es la fuente principal. Reemplaza todo el catálogo local.
 // Incluye: nombre, descripción, precio, stock, imágenes, colorImgs,
@@ -2077,10 +2076,7 @@ buildUI();
 updateCartUI();
 // Sheets es fuente principal: carga todos los productos (con precios incluidos)
 // loadPricesFromSheets() corre en paralelo como sobreescritura de precios si fuera necesario
-Promise.all([
-  loadNewProductsFromSheets(),
-  loadPricesFromSheets()
-]).then(function(){ renderProducts(); });
+loadNewProductsFromSheets().then(function(){ renderProducts(); });
 </script>
 </body>
 </html>
